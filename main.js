@@ -1,28 +1,42 @@
-const mesesDelAno = [
-    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-];
-
 function iniciarSimulador() {
-    let objectivo = parseFloat(document.getElementById("objectivo").value);
-    let ahorroMensual = parseFloat(document.getElementById("ahorro").value);
-    let resultadoDiv = document.getElementById("resultado");
+    let objectivo = document.getElementById('objectivo').value;
+    let ahorro = document.getElementById('ahorro').value;
+    let mes = document.getElementById('meses').value;
+    let ano = document.getElementById('ano').value;
 
-    if (isNaN(objectivo) || isNaN(ahorroMensual) || objectivo <= 0 || ahorroMensual <= 0) {
-        resultadoDiv.innerHTML = "Por favor, ingresa valores válidos.";
+    // hace la verificacion del campo si estan vacios o no seleccionados
+        if (objectivo === "" || ahorro === "" || mes === "zero" || ano === "zero") {
+        alert("Por favor, complete todos os campos.");
         return;
     }
 
-    let totalAhorrado = 0;
-    let meses = 0;
-    let mensaje = "<h2>Progreso:</h2>";
+    // mensaje con resumen
+    let resultado = document.getElementById('resultado');
+    resultado.innerHTML = `Meta de ahorro: ${objectivo} <br>
+                           Ahorro mensual: ${ahorro} <br>
+                           Mes: ${mes} <br>
+                           Año: ${ano} <br>`;
+}
 
-    while (totalAhorrado < objectivo) {
-        totalAhorrado += ahorroMensual;
-        meses++;
-        mensaje += `<p>Mes ${meses}: Has ahorrado $${totalAhorrado}</p>`;
+function registrarAhorro() {
+    // obtencion de valores de ahorro y obectivo
+    let objectivo = document.getElementById('objectivo').value;
+    let ahorro = document.getElementById('ahorro').value;
+
+    // verifica si hay info en ahorro y objectivo
+    if (objectivo === "" || ahorro === "") {
+        alert("Por favor, complete todos os campos.");
+        return;
     }
 
-    mensaje += `<h3>¡Felicidades! Alcanzaste tu meta en ${meses} meses.</h3>`;
-    resultadoDiv.innerHTML = mensaje;
+    // calcula cuanto falta para llegar al objectivo
+    let totalAhorro = parseFloat(ahorro);
+    let objetivo = parseFloat(objectivo);
+    let faltante = objetivo - totalAhorro;
+
+    if (faltante <= 0) {
+        alert("Você atingiu ou superou sua meta de economia!");
+    } else {
+        alert(`Falta para atingir a meta: ${faltante}`);
+    }
 }
