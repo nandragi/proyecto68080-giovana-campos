@@ -1,13 +1,11 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Ahorro</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="main.js"></script>
     <div class="container">
         <h2>Simulador de Ahorro</h2>
         <label for="objectivo">Meta de ahorro:</label>
@@ -15,6 +13,7 @@
 
         <label for="ahorro">Ahorro mensual:</label>
         <input type="number" id="ahorro" placeholder="Ej: 500">
+        
         <select id="meses" name="meses">
             <option value="zero">---</option>
             <option value="enero">Enero</option>
@@ -30,7 +29,8 @@
             <option value="noviembre">Noviembre</option>
             <option value="diciembre">Diciembre</option>
         </select>
-        <select> id="ano" name="ano"
+
+        <select id="ano" name="ano">
             <option value="zero">---</option>
             <option value="2025">2025</option>
             <option value="2026">2026</option>
@@ -58,17 +58,16 @@
             <option value="2048">2048</option>
             <option value="2049">2049</option>
             <option value="2050">2050</option>
-            <option value="2051">2051</option>
-            <option value="2052">2052</option>
-            <option value="2053">2053</option>
-            <option value="2054">2054</option>
-            <option value="2055">2055</option>
+            
         </select>
 
         <button onclick="iniciarSimulador()">Iniciar</button>
+        <button onclick="registrarAhorro()">Agregar ahorro</button>
 
         <div id="resultado"></div>
+        
     </div>
 
+    <script src="main.js"></script>
 </body>
 </html>
