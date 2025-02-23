@@ -13,20 +13,17 @@ body {
     margin: 50px auto;
 }
 
-.conteiner h2 {
+h2 {
     width: 80%;
-    padding: center;
-    margin: center;
-    border-radius: center;
-    margin: 7px auto;   
+    margin: 7px auto;
 }
 
-.conteiner laber
+label,
 input {
     width: 90%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 5px;
 }
 
@@ -34,9 +31,10 @@ button {
     background-color: #28a745;
     color: white;
     padding: 10px;
+    margin: 20px;
     border: none;
     cursor: pointer;
-    width: 80%;
+    width: 100%;
     border-radius: 5px;
 }
 
